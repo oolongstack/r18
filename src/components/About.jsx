@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 // import { connect } from "react-redux";
 import { connect } from "../react-redux";
-import { incrementAction } from "../store/actionCreators";
+import { getPostsList } from "../store/about/actionCreators";
 
 class About extends PureComponent {
   state = {
@@ -10,9 +10,16 @@ class About extends PureComponent {
   render() {
     return (
       <div>
-        count:{this.props.count}
         name:{this.state.name}
-        <button onClick={() => this.props.increment()}>+90</button>
+        <br />
+        <div>
+          list:
+          {this.props.list.map((item) => {
+            return <div key={item}>{item}</div>;
+          })}
+        </div>
+        <button onClick={() => this.props.getPostsList()}>getList</button>
+        <br />
       </div>
     );
   }
@@ -20,14 +27,14 @@ class About extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count,
+    list: state.about.list,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increment() {
-      dispatch(incrementAction(90));
+    getPostsList() {
+      dispatch(getPostsList());
     },
   };
 };

@@ -1,19 +1,19 @@
 import React, { PureComponent } from "react";
 import store from "../store";
-import { incrementAction } from "../store/actionCreators";
+import { incrementAction } from "../store/home/actionCreators";
 
 // import { connect } from "react-redux";
 export default class HomeClass extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      count: store.getState().count,
+      count: store.getState().home.count,
     };
   }
   componentDidMount() {
     this.unsubscribe = store.subscribe(() => {
       this.setState({
-        count: store.getState().count,
+        count: store.getState().home.count,
       });
     });
   }

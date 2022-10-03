@@ -1,5 +1,5 @@
 // import { ADD, INCREMENT } from "./constant";
-import * as actionTypes from "./constant";
+import * as actionTypes from "./constants";
 
 const initialState = {
   count: 0,

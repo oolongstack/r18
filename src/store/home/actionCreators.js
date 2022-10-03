@@ -1,5 +1,4 @@
-import * as actionTypes from "./constant";
-
+import * as actionTypes from "./constants";
 export const addAction = () => ({
   type: actionTypes.ADD,
 });
