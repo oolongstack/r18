@@ -1,5 +1,11 @@
 import * as actionTypes from "./constants";
 import axios from "axios";
+export const addNumberAction = (num) => {
+  return {
+    type: actionTypes.ADD_NUMBER,
+    payload: num,
+  };
+};
 
 export const getPostsListAction = (list) => {
   return {
