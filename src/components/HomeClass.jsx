@@ -1,32 +1,31 @@
 import React, { PureComponent } from "react";
-import store from "../store";
-import { incrementAction } from "../store/home/actionCreators";
-
+import { connect } from "react-redux";
+import { addNumber, subNumber } from "../toolkit-store/features/home";
 // import { connect } from "react-redux";
-export default class HomeClass extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: store.getState().home.count,
-    };
-  }
-  componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState({
-        count: store.getState().home.count,
-      });
-    });
-  }
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
+class HomeClass extends PureComponent {
   render() {
-    const { count } = this.state;
+    const { count, addNumber, subNumber } = this.props;
     return (
       <div>
         count:{count}
-        <button onClick={() => store.dispatch(incrementAction(10))}>+10</button>
+        <br />
+        <button onClick={() => addNumber(10)}>+10</button>
+        <button onClick={() => subNumber(9)}>-9</button>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    count: state.home.count,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  addNumber(num) {
+    dispatch(addNumber(num));
+  },
+  subNumber(num) {
+    dispatch(subNumber(num));
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomeClass);

@@ -7,7 +7,7 @@ function App() {
       <br />
       <HomeClass />
       <br />
-      <About />
+      {/* <About /> */}
       {/* <StateMain></StateMain> */}
     </div>
   );
