@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <button onclick="pushA()">/a</button>
+    <button onclick="pushB()">/b</button>
+    <button onclick="pushC()">/c</button>
+
+    <script>
+      (function (history) {
+        const oldPushState = history.pushState;
+        history.pushState = function () {
+          let result = oldPushState.apply(history, arguments);
+          if (typeof window.onpopstate === "function") {
+            window.onpopstate(new CustomEvent("pushState"));
+          }
+          return result;
+        };
+      })(window.history);
+
+      window.onpopstate = function (event) {
+        console.log(event);
+        root.innerHTML = window.location.pathname;
+      };
+
+      function pushA() {
+        window.history.pushState({ name: "a" }, null, "/a");
+      }
+      function pushB() {
+        window.history.pushState({ name: "b" }, null, "/b");
+      }
+      function pushC() {
+        window.history.pushState({ name: "c" }, null, "/c");
+      }
+    </script>
+  </body>
+</html>

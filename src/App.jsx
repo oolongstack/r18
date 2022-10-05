@@ -13,6 +13,8 @@ import Detail from "./router-views/Detail";
 
 import { withRouter } from "./router-views/withRouter";
 import routes from "./router";
+
+import Index from "./my-router";
 function App() {
   return (
     <div className="App">
@@ -33,11 +35,11 @@ function App() {
         >
           profile
         </NavLink> */}
-        <NavLink to={"/home"}>home</NavLink>
+        {/* <NavLink to={"/home"}>home</NavLink>
         <NavLink to={"/profile"}>profile</NavLink>
         <NavLink to={"/login"}>login</NavLink>
         <span onClick={() => this.props.router.navigate("/order")}>订单</span>
-        <NavLink to="/detail/100?name=cjl&age=20">detail</NavLink>
+        <NavLink to="/detail/100?name=cjl&age=20">detail</NavLink> */}
       </header>
       {/* <br /> */}
       {/* <HomeClass /> */}
@@ -57,9 +59,10 @@ function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="*" element={<NotFound />} />
         </Routes> */}
-      {useRoutes(routes)}
+      {/* {useRoutes(routes)} */}
+      <Index />
     </div>
   );
 }
 
-export default withRouter(App);
+export default App;
