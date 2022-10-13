@@ -15,11 +15,14 @@ import { withRouter } from "./router-views/withRouter";
 import routes from "./router";
 
 import Index from "./my-router";
+
+import Main from "./context/Main";
+import F from "./scope-slot/F";
 function App() {
   return (
     <div className="App">
-      <header>
-        {/* <NavLink
+      {/* <header> */}
+      {/* <NavLink
           to={"/home"}
           style={({ isActive }) => ({
             color: isActive ? "red" : "blue",
@@ -35,12 +38,12 @@ function App() {
         >
           profile
         </NavLink> */}
-        {/* <NavLink to={"/home"}>home</NavLink>
+      {/* <NavLink to={"/home"}>home</NavLink>
         <NavLink to={"/profile"}>profile</NavLink>
         <NavLink to={"/login"}>login</NavLink>
         <span onClick={() => this.props.router.navigate("/order")}>订单</span>
         <NavLink to="/detail/100?name=cjl&age=20">detail</NavLink> */}
-      </header>
+      {/* </header> */}
       {/* <br /> */}
       {/* <HomeClass /> */}
       {/* <br /> */}
@@ -60,7 +63,9 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes> */}
       {/* {useRoutes(routes)} */}
-      <Index />
+      {/* <Index /> */}
+      <Main></Main>
+      <F />
     </div>
   );
 }
