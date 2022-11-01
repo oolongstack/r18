@@ -18,6 +18,7 @@ import Index from "./my-router";
 
 import Main from "./context/Main";
 import F from "./scope-slot/F";
+import Hooks from "./hooks/index";
 function App() {
   return (
     <div className="App">
@@ -64,8 +65,9 @@ function App() {
         </Routes> */}
       {/* {useRoutes(routes)} */}
       {/* <Index /> */}
-      <Main></Main>
-      <F />
+      {/* <Main></Main>
+      <F /> */}
+      <Hooks></Hooks>
     </div>
   );
 }
