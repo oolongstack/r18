@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { useState } from "react";
-
+import UseCallback from "./UseCallback";
+export const themeContext = React.createContext({ name: "cjl" });
 const Hooks = memo((props) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -19,6 +20,9 @@ const Hooks = memo((props) => {
     <div>
       <h1>{count}</h1>
       <button onClick={() => setCount(count + 1)}>+1</button>
+      <br />
+      <h1>----------------------</h1>
+      <UseCallback />
     </div>
   );
 });
